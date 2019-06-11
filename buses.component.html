@@ -1,0 +1,21 @@
+
+<table class="table" *ngIf="buses" >
+   <tbody>
+      <tr>
+         <th>Bus Route No.</th>
+         <th>Source</th>
+		  <th>Destination</th>
+      </tr>
+	  <tr *ngIf="!buses.length">
+	  <td rowspan="1" colspan="3" class="text-center"> No bus information available.</td>
+	  </tr>
+	  
+      <tr *ngFor="let bus of buses; let i = index">
+         <td *ngIf="bus.route_no">{{bus.route_no}} dtc bus route</td>
+		 <td *ngIf="!bus.route_no"> {{bus.source}} to {{bus.destination}} dtc bus route</td>
+         <td rowspan="1">{{bus.source}}</td>
+		 <td rowspan="1">{{bus.destination}}</td>
+      </tr>
+      
+   </tbody>
+</table>
